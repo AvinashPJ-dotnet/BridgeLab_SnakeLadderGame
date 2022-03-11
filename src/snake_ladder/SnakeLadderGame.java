@@ -22,7 +22,12 @@ public class SnakeLadderGame {
     public void startGame(){
         int[] totalPlayerPosition=createPositionForPlayer(totalPlayers);
         System.out.println(Arrays.toString(totalPlayerPosition));
+        rollTheDice();
     }
 
+    public void rollTheDice(){
+        int diceNumber=((int)Math.floor(Math.random()*10)%6)+1;
+        System.out.println("dice number: "+diceNumber);
+    }
 
 }
