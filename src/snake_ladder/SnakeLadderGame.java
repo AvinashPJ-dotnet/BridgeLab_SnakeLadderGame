@@ -1,5 +1,11 @@
 package snake_ladder;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class SnakeLadderGame {
     int totalPlayers=0;
     int[] playerPositionVariables;
@@ -30,11 +36,15 @@ public class SnakeLadderGame {
     public void movePlayer(){
         final int LADDER=1;
         final int SNAKE=2;
+        List<Integer> diePosition = new ArrayList<>();
+        int dieCount=0;
         while (playerPositionVariables[0]<BOARD_SIZE){
             int dieValue=rollTheDice();
             int previousPosition=0;
             int choice=((int)Math.floor(Math.random()*10)%3)+1;
             int playerCurrentPosition=playerPositionVariables[0];
+            diePosition.add(dieValue);
+            dieCount++;
             previousPosition=playerCurrentPosition;
             switch (choice){
                 case LADDER:
@@ -56,5 +66,7 @@ public class SnakeLadderGame {
                 playerPositionVariables[0]= playerCurrentPosition;
         }
         System.out.println("player position is: "+playerPositionVariables[0]);
+        System.out.println("Total Die count is: "+dieCount);
+        System.out.println("every rolled die position: "+ Arrays.asList(diePosition));
     }
 }
