@@ -5,6 +5,5 @@ public class Start {
         SnakeLadderGame obj1 = new SnakeLadderGame(1);
         obj1.startGame();
 
-
     }
 }
