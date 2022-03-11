@@ -7,6 +7,7 @@ public class SnakeLadderGame {
     int[] playerPositionVariables;
     public SnakeLadderGame(int numberOfPlayers){
         if (numberOfPlayers==0){
+            System.out.print("Minimum One player is needed..");
             System.exit(0);
         }
         totalPlayers=numberOfPlayers;
