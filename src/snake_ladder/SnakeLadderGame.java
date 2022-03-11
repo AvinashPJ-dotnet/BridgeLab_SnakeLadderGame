@@ -19,8 +19,7 @@ public class SnakeLadderGame {
     }
     public void startGame(){
         setInitialPositionForPlayer(totalPlayers);
-        int dieValue=rollTheDice();
-        movePlayer(dieValue);
+        movePlayer();
     }
 
     public int rollTheDice(){
@@ -28,12 +27,15 @@ public class SnakeLadderGame {
         return diceNumber;
     }
 
-    public void movePlayer(int dieValue){
+    public void movePlayer(){
         final int LADDER=1;
         final int SNAKE=2;
         while (playerPositionVariables[0]<BOARD_SIZE){
+            int dieValue=rollTheDice();
+            int previousPosition=0;
             int choice=((int)Math.floor(Math.random()*10)%3)+1;
             int playerCurrentPosition=playerPositionVariables[0];
+            previousPosition=playerCurrentPosition;
             switch (choice){
                 case LADDER:
                     playerCurrentPosition+=dieValue;
@@ -47,9 +49,12 @@ public class SnakeLadderGame {
             if(playerCurrentPosition<0){
                 playerCurrentPosition=0;
             }
-            playerPositionVariables[0]= playerCurrentPosition;
+            //check whether player mover above Board size
+            if (playerCurrentPosition>BOARD_SIZE)
+                playerPositionVariables[0]= previousPosition;
+            else
+                playerPositionVariables[0]= playerCurrentPosition;
         }
-
         System.out.println("player position is: "+playerPositionVariables[0]);
     }
 }
