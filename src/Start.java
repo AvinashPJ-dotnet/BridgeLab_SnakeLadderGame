@@ -1,8 +1,8 @@
-import snake_ladder.SnakeLadderGameTwo;
+import snake_ladder.SnakeLadderGame;
 
 public class Start {
     public static void main(String[] args) {
-        SnakeLadderGameTwo obj1 = new SnakeLadderGameTwo();
+        SnakeLadderGame obj1 = new SnakeLadderGame();
         obj1.startGame();
     }
 }
